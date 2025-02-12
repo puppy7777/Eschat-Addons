@@ -23,7 +23,8 @@ public class DungeonFloorCommands {
         }
         if (event.isCanceled()) return;
         String unFormattedMessage = event.message.getUnformattedText();
-        boolean command = Pattern.compile("Party > .*? ![fm][1234567]?").matcher(unFormattedMessage).find();
+        Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText(unFormattedMessage));
+        boolean command = Pattern.compile("§9Party.*? ![fm][1234567]?").matcher(unFormattedMessage).find();
         if (command) {
             String[] parts = unFormattedMessage.split("!", 2);
             try {
