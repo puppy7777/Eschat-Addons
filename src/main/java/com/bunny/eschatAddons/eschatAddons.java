@@ -1,7 +1,7 @@
 package com.bunny.eschatAddons;
 
-import com.bunny.eschatAddons.GUI.GuiEschat;
 import com.bunny.eschatAddons.config.ConfigHandler;
+import com.bunny.eschatAddons.features.DungeonFloorCommands;
 import com.bunny.eschatAddons.features.NoDTListener;
 import com.bunny.eschatAddons.features.PartyCommands;
 import com.bunny.eschatAddons.HUD.NoDTHUD;
@@ -36,5 +36,6 @@ public class eschatAddons {
         MinecraftForge.EVENT_BUS.register(new NoDTListener());
         MinecraftForge.EVENT_BUS.register(new PartyCommands());
         MinecraftForge.EVENT_BUS.register(new NoDTHUD());
+        MinecraftForge.EVENT_BUS.register(new DungeonFloorCommands());
     }
 }

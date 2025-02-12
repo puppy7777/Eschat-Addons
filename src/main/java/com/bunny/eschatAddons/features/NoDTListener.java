@@ -41,11 +41,12 @@ public class NoDTListener {
                 .replace("From ", "") // Remove "From "
                 .trim(); // Trim any leading/trailing spaces // Normalize spaces
 
-        System.out.println("Formatted Message: " + unFormattedMessage);
+        System.out.println("Unformatted Message: " + unFormattedMessage);
 
         if (!DtCalled && unFormattedMessage.contains("!dt" )){
             DtCalled = true;
             Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_PURPLE + "" + EnumChatFormatting.BOLD + "[EschatAddons] " + EnumChatFormatting.GOLD + "Downtime Called!"));
+            return;
         }
 
         if (unFormattedMessage.contains("> EXTRA STATS <")) {
