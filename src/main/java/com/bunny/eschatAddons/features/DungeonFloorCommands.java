@@ -23,8 +23,7 @@ public class DungeonFloorCommands {
         }
         if (event.isCanceled()) return;
         String unFormattedMessage = event.message.getUnformattedText();
-        boolean command = Pattern.compile(": ![fm][1234567]").matcher(unFormattedMessage).find();
-        System.out.println(command);
+        boolean command = Pattern.compile("Party > .*? ![fm][1234567]?").matcher(unFormattedMessage).find();
         if (command) {
             String[] parts = unFormattedMessage.split("!", 2);
             try {
@@ -32,6 +31,8 @@ public class DungeonFloorCommands {
                 int floor = parts[1].charAt(1) - '0';
                 Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("Would execute /joindungeon " +
                         ((isMasterMode) ? "master_" : "") + "catacombs_floor_" + floors[floor - 1]));
+                Minecraft.getMinecraft().thePlayer.sendChatMessage("/joindungeon " +
+                        ((isMasterMode) ? "master_" : "") + "catacombs_floor_" + floors[floor - 1]);
             } catch (Exception ignored) {}
         }
     }
