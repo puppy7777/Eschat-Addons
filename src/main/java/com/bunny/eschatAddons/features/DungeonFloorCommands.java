@@ -22,7 +22,6 @@ public class DungeonFloorCommands {
             return;
         }
         if (event.isCanceled()) return;
-
         String unFormattedMessage = event.message.getUnformattedText();
         boolean command = Pattern.compile(": ![fm][1234567]").matcher(unFormattedMessage).find();
         System.out.println(command);
